@@ -60,5 +60,35 @@ modX_TIPO1-TIPO2_YYYYMMDD-HHMM.xml
 
 ---
 
+## [Incremento 28/05/2025] — Detalhamento de Serviços por Módulo
+
+Agora, cada módulo pode possuir uma lista de serviços detalhados (tratamentos, trocas, substituições) e adicionar peças extras.
+
+### Serviços disponíveis por módulo
+
+- Desmontagem
+- Montagem
+- Transporte
+- Recuperação estrutural
+- Lixamento
+- Pintura
+- Tratamento químico
+- Troca de tela
+- Troca de cabo
+- Adição/substituição de pilares, braços, arcos e peças customizadas
+
+Cada serviço pode ser habilitado por checkbox no cadastro/edição do módulo.
+
+### Peças adicionais
+
+- Cadastro por nome, quantidade e valor unitário.
+- Peças extras podem ser adicionadas a cada módulo conforme necessidade.
+
+### Cálculo do preço final
+
+O preço final do módulo é a soma dos valores dos serviços marcados (com multiplicadores, se houver) e das peças extras cadastradas.
+
+---
+
 > **Rastro incremental:**  
-> Adicionado padrão de nomenclatura para exportação XML conforme instrução de 28/05/2025.
+> Adicionado detalhamento de serviços por módulo e peças extras conforme instrução de 28/05/2025.

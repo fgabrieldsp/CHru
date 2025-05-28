@@ -10,6 +10,26 @@
       <bases_comprometidas>0</bases_comprometidas>
       <pecas_removidas></pecas_removidas>
       <observacoes></observacoes>
+      <!-- Incremento 28/05/2025: Serviços detalhados e peças extras por módulo -->
+      <servicos>
+        <servico>
+          <tipo>lixamento</tipo>
+          <habilitado>true</habilitado>
+          <valor>100</valor>
+        </servico>
+        <servico>
+          <tipo>pintura</tipo>
+          <habilitado>false</habilitado>
+          <valor>0</valor>
+        </servico>
+        <!-- Outros serviços podem ser listados aqui -->
+        <peca_extra>
+          <nome>Braço novo</nome>
+          <quantidade>2</quantidade>
+          <valor_unitario>150</valor_unitario>
+        </peca_extra>
+        <!-- Outras peças extras podem ser listadas aqui -->
+      </servicos>
     </modulo>
   </modulos>
   <servicos>

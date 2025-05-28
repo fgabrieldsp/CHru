@@ -16,3 +16,11 @@ A função responsável por gerar o nome do arquivo XML exportado está implemen
 Ela coleta automaticamente a quantidade de módulos, os tipos de serviço distintos presentes no orçamento (usando as abreviações padrão) e a data/hora da exportação para montar o nome do arquivo conforme o padrão aprovado na documentação.
 
 > Em caso de atualização no padrão de nomenclatura, ajustar este comentário e a função correspondente no JS.
+
+---
+
+## Incremento 28/05/2025 — Detalhamento de Serviços por Módulo
+
+- Função `detalharServicosModulo(idx)`: abre painel/modal para detalhamento de serviços do módulo selecionado.
+- Cada módulo (objeto JS) possui agora os campos `.servicos` (array de serviços) e `.pecas_extras` (array de peças extras).
+- A renderização da tabela foi/será atualizada para indicar se há serviços detalhados e mostrar um resumo rápido desses serviços e peças extras.

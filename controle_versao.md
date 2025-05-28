@@ -31,3 +31,11 @@
 - Projeto inicializado e versionado com Git.
 - Todos os arquivos do ecossistema agora sob controle de versão.
 - Pronto para colaboração, rastreabilidade e integração com repositórios remotos.
+
+---
+
+### [28/05/2025] Incremento — Detalhamento de Serviços por Módulo
+
+- Implementada a função `detalharServicosModulo(idx)` para abrir painel/modal de detalhamento de serviços do módulo.
+- Cada módulo (objeto JS) agora possui os campos `.servicos` (array de serviços) e `.pecas_extras` (array de peças extras).
+- Renderização da tabela atualizada para indicar se há serviços detalhados e mostrar um resumo rápido desses serviços e peças extras.
