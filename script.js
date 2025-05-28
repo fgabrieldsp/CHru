@@ -39,10 +39,11 @@ function renderTabela() {
     // Resumo dos serviços
     const servicosMarcados = m.servicos ? m.servicos.filter(s => s.habilitado).map(s => s.nome).join(', ') : '-';
     const precoTotal = calcularPrecoModulo(m);
-    const btnDetalhar = `<button class="bg-blue-100 text-blue-700 font-semibold px-3 py-1 rounded-xl hover:bg-blue-200 transition"
-      onclick="detalharServicosModulo(${idx})">Detalhar Serviços</button>`;
-    const btnRemover = `<button class="bg-red-100 text-red-700 font-semibold px-3 py-1 rounded-xl hover:bg-red-200 transition"
-      onclick="removerModulo(${idx})">Remover</button>`;
+    // Ícones universais com tooltip e classe no-print
+    const btnDetalhar = `<button title="Detalhar Serviços" class="text-blue-700 text-lg hover:text-blue-900 px-1 no-print"
+      onclick="detalharServicosModulo(${idx})">🔧</button>`;
+    const btnRemover = `<button title="Remover" class="text-red-700 text-lg hover:text-red-900 px-1 no-print"
+      onclick="removerModulo(${idx})">🗑️</button>`;
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${idx+1}</td>
@@ -53,7 +54,9 @@ function renderTabela() {
       <td>${m.bases_comprometidas}</td>
       <td>${m.pecas_removidas || '-'}</td>
       <td>${m.observacoes || '-'}</td>
-      <td class="space-y-1 flex flex-col items-start">${btnDetalhar}${btnRemover}
+      <td class="flex flex-row gap-2 items-center">
+        ${btnDetalhar}
+        ${btnRemover}
         <span class="text-xs text-blue-900 mt-1">Serviços: ${servicosMarcados}</span>
         <span class="text-xs text-green-700">R$ ${precoTotal.toFixed(2)}</span>
       </td>
@@ -105,37 +108,12 @@ function removerModulo(idx) {
 
 let idxModuloAtivo = null; // Índice do módulo sendo editado
 
-// Criação dinâmica do modal (inserir no HTML base se não houver)
-function criarModalServicos() {
-  if (document.getElementById('servicosModal')) return;
-  const modal = document.createElement('div');
-  modal.id = 'servicosModal';
-  modal.className = 'fixed inset-0 z-40 bg-black bg-opacity-30 flex items-center justify-center hidden';
-  modal.innerHTML = `
-    <div class="bg-white rounded-2xl p-6 shadow-2xl w-full max-w-lg">
-      <h2 class="text-2xl font-bold text-blue-800 mb-4">Detalhar Serviços do Módulo</h2>
-      <form id="servicosForm" class="space-y-3">
-        <div id="servicosCheckboxes" class="space-y-2"></div>
-        <div>
-          <label class="font-bold block mb-1">Peças Extras</label>
-          <div id="pecasExtrasList" class="mb-2"></div>
-          <button type="button" onclick="adicionarPecaExtraUI()" class="px-3 py-1 rounded-lg bg-blue-100 text-blue-800 font-semibold">Adicionar Peça</button>
-        </div>
-        <div class="flex justify-end gap-3 mt-4">
-          <button type="button" onclick="fecharModalServicos()" class="px-4 py-2 rounded-lg bg-gray-200">Cancelar</button>
-          <button type="submit" class="px-4 py-2 rounded-lg bg-blue-700 text-white font-bold">Salvar</button>
-        </div>
-      </form>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
-criarModalServicos();
-
+// Atualizar detalharServicosModulo e fecharModalServicos para manipular display
 function detalharServicosModulo(idx) {
   idxModuloAtivo = idx;
   const modulo = modulos[idx];
-  document.getElementById('servicosModal').classList.remove('hidden');
+  const modal = document.getElementById('servicosModal');
+  if (modal) modal.style.display = 'flex'; // Mostra o modal
   // Renderiza checkboxes dos serviços
   const servicosDiv = document.getElementById('servicosCheckboxes');
   servicosDiv.innerHTML = '';
@@ -154,7 +132,8 @@ function detalharServicosModulo(idx) {
 }
 
 function fecharModalServicos() {
-  document.getElementById('servicosModal').classList.add('hidden');
+  const modal = document.getElementById('servicosModal');
+  if (modal) modal.style.display = 'none'; // Esconde o modal
   idxModuloAtivo = null;
 }
 
