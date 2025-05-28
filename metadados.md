@@ -1,0 +1,64 @@
+# Metadados — Calculadora de Manutenção e Reforma
+
+Esta calculadora foi desenvolvida para estimativa, registro e acompanhamento de serviços de manutenção e reforma em estruturas metálicas já existentes, orientada por módulos e parametrizada por grau de dano e histórico.
+
+- Persistência: XML local, com estrutura pronta para futura integração com banco relacional via API REST (ex: NocoDB).
+- Foco: Simplicidade, flexibilidade, facilidade de uso e de backup/exportação.
+- Campos essenciais: identificação, número de vagas, dimensões, estado, bases comprometidas, peças removidas, observações, serviços associados.
+
+<!--
+  Incremento: Atualizado para refletir os campos e estrutura do index.html (28/05/2025).
+  Referência: index.html, exportarXML/importarXML.
+-->
+
+## Campos do Módulo
+
+| Campo                | Tipo    | Exemplo | Descrição                                      |
+|----------------------|---------|---------|------------------------------------------------|
+| id                   | int     | 1       | Identificador incremental do módulo             |
+| quantidade_vagas     | int     | 4       | Quantidade de vagas do módulo                   |
+| largura_m            | float   | 10      | Largura do módulo em metros                     |
+| comprimento_m        | float   | 5       | Comprimento do módulo em metros                 |
+| estado               | string  | Ruim    | Estado geral do módulo                          |
+| bases_comprometidas  | int     | 0       | Número de bases comprometidas                   |
+| pecas_removidas      | string  | -       | Peças removidas ou guardadas                    |
+| observacoes          | string  | -       | Observações adicionais                          |
+
+---
+
+## [Incremento 28/05/2025] — Padrão de nomenclatura para exportação XML
+
+Ao exportar o orçamento em XML, o nome do arquivo segue o padrão:
+
+```
+modX_TIPO1-TIPO2_YYYYMMDD-HHMM.xml
+```
+
+- **X**: número de módulos incluídos no orçamento.
+- **TIPO1, TIPO2...**: abreviações dos tipos de serviço distintos presentes, separados por hífen.
+- **YYYYMMDD-HHMM**: data/hora da exportação.
+
+### Abreviações dos tipos de serviço
+
+| Abreviação | Serviço               |
+|------------|----------------------|
+| LIX        | Lixamento            |
+| PIN        | Pintura              |
+| REF        | Reforço              |
+| SOL        | Solda                |
+| FAB        | Fabricação           |
+| DES        | Desempeno            |
+| TRA        | Tratamento químico   |
+| MON        | Montagem             |
+| DESM       | Desmontagem          |
+| BAS        | Bases                |
+| COS        | Costura/recostura    |
+| TEL        | Tela nova            |
+| CAB        | Troca de cabo        |
+
+> O objetivo é que o nome do arquivo permita identificar rapidamente a magnitude, a natureza dos serviços e a data/hora do orçamento, sem abrir o arquivo.
+
+---
+
+> **Rastro incremental:**  
+> Adicionado padrão de nomenclatura para exportação XML conforme instrução de 28/05/2025.

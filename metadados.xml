@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculadora>
+  <modulos>
+    <modulo>
+      <id>1</id>
+      <quantidade_vagas>4</quantidade_vagas>
+      <largura_m>10</largura_m>
+      <comprimento_m>5</comprimento_m>
+      <estado>Ruim</estado>
+      <bases_comprometidas>0</bases_comprometidas>
+      <pecas_removidas></pecas_removidas>
+      <observacoes></observacoes>
+    </modulo>
+  </modulos>
+  <servicos>
+    <servico>
+      <id>1</id>
+      <modulo_id>1</modulo_id>
+      <tipo_servico>lixamento</tipo_servico>
+      <quantidade>10</quantidade>
+      <unidade>m2</unidade>
+      <status>sugerido</status>
+      <custo_unitario>0</custo_unitario>
+      <custo_total>0</custo_total>
+      <observacoes></observacoes>
+    </servico>
+  </servicos>
+</calculadora>
