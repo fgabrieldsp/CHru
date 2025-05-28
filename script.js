@@ -14,19 +14,53 @@ const SERVICOS_PADRAO = [
   { tipo: "cabo", nome: "Troca de cabo de aço", valor: 0 }
 ];
 
+const SERVICOS_VALORES_BASE = {
+  desmontagem: 60,  // fixo
+  montagem: 70,     // fixo
+  transporte: 25,   // fixo
+  recuperacao: 38,  // fixo
+  lixamento: 8,     // R$/m²
+  pintura: 10,      // R$/m²
+  tratamento: 4,    // R$/m²
+  tela: 14,         // R$/m²
+  cabo: 36          // fixo
+};
+
+const MULTIPLICADOR_ESTADO = {
+  "Ruim": 1,
+  "Muito Ruim": 1.15,
+  "Condição Crítica": 1.3
+};
+
+const SERVICOS_AREA = ["lixamento", "pintura", "tratamento", "tela"];
+
 // Função para criar novo módulo com todos campos padrão + serviços e peças extras
 function novoModuloPadrao(formVals = {}) {
+  const estado = formVals.estado || "Ruim";
+  const mult = MULTIPLICADOR_ESTADO[estado] || 1;
+  const area = (Number(formVals.largura_m) || 10) * (Number(formVals.comprimento_m) || 5);
+
   return {
     quantidade_vagas: formVals.quantidade_vagas || 4,
     largura_m: formVals.largura_m || 10,
     comprimento_m: formVals.comprimento_m || 5,
-    estado: formVals.estado || "Ruim",
+    estado,
     bases_comprometidas: formVals.bases_comprometidas || 0,
     pecas_removidas: formVals.pecas_removidas || "",
     observacoes: formVals.observacoes || "",
-    servicos: SERVICOS_PADRAO.map(s => ({
-      ...s, habilitado: false, valor: s.valor
-    })),
+    servicos: SERVICOS_PADRAO.map(s => {
+      let valorBase = SERVICOS_VALORES_BASE[s.tipo] || 0;
+      let valor = SERVICOS_AREA.includes(s.tipo)
+        ? valorBase * area * mult
+        : valorBase * mult;
+      valor = Math.round(valor * 100) / 100;
+      return {
+        ...s,
+        habilitado: false,
+        valor_base: valor,
+        valor: valor
+      };
+    }),
     pecas_extras: [] // {nome, quantidade, valor_unitario}
   };
 }

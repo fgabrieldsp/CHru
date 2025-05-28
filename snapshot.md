@@ -3,42 +3,42 @@
 ## Situação Atual
 
 - **index.html**
-  - Estrutura pronta para tabela dinâmica, modal de detalhamento de serviços e bloco do regulador geral.
-  - Ações da tabela usam apenas ícones universais (🔧 para detalhar/editar, 🗑️ para remover), com tooltips e classe `.no-print`.
-  - CSS para ocultar botões na impressão sugerido/adicionado.
-  - Modal de detalhamento de serviços presente no HTML, oculto por `display:none`, manipulado via JS.
+  - Estrutura moderna, classes CSS próprias, modal de detalhamento presente e oculto por padrão.
+  - Tabela dinâmica, botões de ação com ícones universais, integração pronta com script.js.
+  - Importação/exportação XML funcional.
+
+- **style.css**
+  - Visual limpo, responsivo, preparado para impressão (`.no-print`).
+  - Classes para inputs, botões, grid, tabela, ações e modal.
 
 - **script.js**
-  - Função `renderTabela` atualizada para ícones universais.
-  - Estrutura modular para cadastro, detalhamento, exportação/importação XML, cálculo de preços e peças extras.
-  - Correção aplicada: modal de detalhamento agora é exibido/ocultado via `style.display = 'flex'`/`'none'`, compatível com o HTML estático.
-  - Pronto para receber lógica do regulador geral (slider/input) para ajuste percentual dos valores dos serviços.
-  - Pronto para incremento de valores base e multiplicadores por estado do módulo.
+  - Estrutura de dados modular, funções para cadastro, detalhamento, exportação/importação, renderização de tabela e modal.
+  - Modal de detalhamento manipulado via `style.display`.
+  - Pronto para incrementos de valores dinâmicos por estado e regulador geral.
 
 - **metadados.xml / metadados.md**
-  - Estrutura e documentação dos campos dos módulos e serviços, incluindo detalhamento, peças extras e padrão de nomenclatura XML.
-  - Exemplo de módulo com serviços detalhados e peças extras atualizado.
-  - Pronto para receber documentação de valores base e multiplicadores por estado, caso implementado.
+  - Estrutura e documentação alinhadas com o código e interface.
+  - Exemplo de módulo com serviços detalhados e peças extras.
 
 - **controle_versao.md / mapa_codigo.md**
-  - Histórico de incrementos, rastreabilidade e mapeamento do código atualizados.
-  - Referências ao funcionamento do modal e detalhamento de serviços.
+  - Histórico, rastreabilidade e mapeamento do código atualizados.
+  - Checkpoint registrado.
 
-- **Projeto sob controle de versão Git.**
+- **LICENSE**
+  - Licença MIT presente.
+
+- **calculadora_base.html**
+  - Arquivo de referência/backup, não interfere no fluxo principal.
+
+- **000_COMECE_AQUI.md**
+  - Protocolo de inicialização e objetivo do projeto.
 
 ---
 
-## Checkpoint
+## Checkpoint registrado em 28/05/2025
 
-- **Checkpoint criado em 28/05/2025 (atualizado):**  
-  Ecossistema sincronizado, modal funcional, pronto para incrementos de lógica de valores dinâmicos por estado, regulador geral e melhorias de UI/UX.
-
----
-
-**Próximos passos:**  
-- Implementar valores base e multiplicadores por estado na criação do módulo.
-- Documentar a lógica de valores dinâmicos nos metadados após implementação.
-- Incrementar funcionalidades conforme necessidade.
+- Ecossistema sincronizado, rastreável e pronto para incrementos (valores dinâmicos, regulador geral, melhorias de UX).
+- Nenhum erro estrutural ou de integração detectado.
 
 ---
 
