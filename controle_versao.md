@@ -23,3 +23,11 @@
 - Adotado padrão de nome: modX_TIPO1-TIPO2_YYYYMMDD-HHMM.xml, onde X é a quantidade de módulos, TIPO1/2 são abreviações dos tipos de serviço presentes, e a data/hora da exportação.
 - Justificativa: facilitar consulta visual, evitar sobrescrita acidental, acelerar busca e rastreabilidade de orçamentos antigos.
 - Refletido nos metadados e snapshot. Próxima etapa: implementação da lógica no JS.
+
+---
+
+### [28/05/2025] Sincronização do projeto com o Git
+
+- Projeto inicializado e versionado com Git.
+- Todos os arquivos do ecossistema agora sob controle de versão.
+- Pronto para colaboração, rastreabilidade e integração com repositórios remotos.

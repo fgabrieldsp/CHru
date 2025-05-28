@@ -37,4 +37,10 @@
 `modX_TIPO1-TIPO2_YYYYMMDD-HHMM.xml`  
 (Ver `metadados.md` para detalhes e abreviações dos serviços.)
 
+---
+
+**Status de versionamento:**  
+- Projeto sincronizado com Git.  
+- Todos os arquivos sob controle de versão para rastreabilidade e colaboração.
+
 
