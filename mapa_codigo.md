@@ -1,12 +1,15 @@
 # Mapa do Código — Calculadora de Manutenção e Reforma
 
 ## Componentes principais
-- Cadastro de módulos: formulário para inserção/edição dos campos de cada módulo
-- Cadastro de serviços: vinculados a cada módulo, pode ser automático ou manual
-- Exportação/importação: botões para XML
-- Tabela resumo: lista dinâmica de módulos e serviços
-- Estrutura de dados JS: objetos, arrays, funções de CRUD
-- Pontos de expansão: funções para integração com API REST (NocoDB), validações adicionais, relatórios
+- Cadastro de módulos: formulário para inserção/edição dos campos de cada módulo (inclui quantidade de vagas, largura, comprimento, estado)
+- Cadastro de serviços: vinculados a cada módulo, com checkboxes automáticos conforme o estado, valores dinâmicos e detalhamento via modal
+- Margem de costura e observação: campos editáveis no modal de detalhamento, com cálculo automático de área útil e área total da tela
+- Cadastro de peças extras: lista dinâmica por módulo
+- Exportação/importação: botões para XML, incluindo todos os campos (serviços, peças extras, margem, observação)
+- Tabela resumo: lista dinâmica de módulos, serviços habilitados e preços
+- Estrutura de dados JS: objetos, arrays, funções de CRUD, cálculo de preço, atualização de área
+- Padronização de exibição: serviços exibidos por nome, separados por vírgula
+- Pontos de expansão: integração com API REST (NocoDB), validações adicionais, relatórios
 
 ---
 
@@ -19,8 +22,10 @@ Ela coleta automaticamente a quantidade de módulos, os tipos de serviço distin
 
 ---
 
-## Incremento 28/05/2025 — Detalhamento de Serviços por Módulo
+## Incremento 29/05/2025 — Margem de costura, observação e padronização
 
-- Função `detalharServicosModulo(idx)`: abre painel/modal para detalhamento de serviços do módulo selecionado.
-- Cada módulo (objeto JS) possui agora os campos `.servicos` (array de serviços) e `.pecas_extras` (array de peças extras).
-- A renderização da tabela foi/será atualizada para indicar se há serviços detalhados e mostrar um resumo rápido desses serviços e peças extras.
+- Modal de detalhamento de serviços agora inclui campos de margem de costura e observação, com cálculo automático de área útil e área total da tela.
+- Exportação/importação XML sincronizadas com os novos campos.
+- Exibição dos serviços na tabela padronizada (nomes separados por vírgula).
+- Correção da importação do campo quantidade_vagas.
+- Cada módulo (objeto JS) possui os campos `.servicos` (array de serviços), `.pecas_extras` (array de peças extras), `.margem_costura` e `.obs_costura`.

@@ -4,10 +4,10 @@ Esta calculadora foi desenvolvida para estimativa, registro e acompanhamento de 
 
 - Persistência: XML local, com estrutura pronta para futura integração com banco relacional via API REST (ex: NocoDB).
 - Foco: Simplicidade, flexibilidade, facilidade de uso e de backup/exportação.
-- Campos essenciais: identificação, número de vagas, dimensões, estado, bases comprometidas, peças removidas, observações, serviços associados.
+- Campos essenciais: identificação, número de vagas, dimensões, estado, margem de costura, observações, serviços associados, peças extras.
 
 <!--
-  Incremento: Atualizado para refletir os campos e estrutura do index.html (28/05/2025).
+  Incremento: Atualizado para refletir os campos e estrutura do index.html (29/05/2025).
   Referência: index.html, exportarXML/importarXML.
 -->
 
@@ -15,14 +15,29 @@ Esta calculadora foi desenvolvida para estimativa, registro e acompanhamento de 
 
 | Campo                | Tipo    | Exemplo | Descrição                                      |
 |----------------------|---------|---------|------------------------------------------------|
-| id                   | int     | 1       | Identificador incremental do módulo             |
-| quantidade_vagas     | int     | 4       | Quantidade de vagas do módulo                   |
+| id                   | int     | 1       | Identificador único do módulo                   |
+| quantidade_vagas     | int     | 4       | Número de vagas do módulo                       |
 | largura_m            | float   | 10      | Largura do módulo em metros                     |
 | comprimento_m        | float   | 5       | Comprimento do módulo em metros                 |
 | estado               | string  | Ruim    | Estado geral do módulo                          |
-| bases_comprometidas  | int     | 0       | Número de bases comprometidas                   |
-| pecas_removidas      | string  | -       | Peças removidas ou guardadas                    |
-| observacoes          | string  | -       | Observações adicionais                          |
+| margem_costura       | float   | 0.05    | Margem de costura por lado (em metros)          |
+| obs_costura          | string  | ...     | Observação sobre costura/acabamento             |
+| observacoes          | string  | ...     | Observações gerais                              |
+| servicos             | array   | [...]   | Lista de serviços detalhados por módulo         |
+| pecas_extras         | array   | [...]   | Lista de peças extras associadas ao módulo      |
+
+## Estrutura XML
+
+- Cada módulo possui seus próprios serviços detalhados e peças extras.
+- Exportação/importação XML segue o padrão documentado e inclui margem de costura e observação.
+- Modal de detalhamento permite edição granular dos serviços, peças extras e campos de costura.
+
+---
+
+## [Incremento 29/05/2025] — Margem de costura e observação
+
+- Adicionados campos `margem_costura` e `obs_costura` ao detalhamento do módulo.
+- Exportação/importação XML e interface sincronizadas com esses campos.
 
 ---
 
@@ -91,4 +106,4 @@ O preço final do módulo é a soma dos valores dos serviços marcados (com mult
 ---
 
 > **Rastro incremental:**  
-> Adicionado detalhamento de serviços por módulo e peças extras conforme instrução de 28/05/2025.
+> Adicionado detalhamento de serviços por módulo, peças extras, margem de costura e observação conforme instrução de 29/05/2025.

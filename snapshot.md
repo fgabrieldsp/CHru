@@ -35,11 +35,12 @@
 
 ---
 
-## Checkpoint registrado em 28/05/2025
+## Checkpoint registrado em 29/05/2025 (incremento)
 
-- Ecossistema sincronizado, rastreável e pronto para incrementos (valores dinâmicos, regulador geral, melhorias de UX).
-- Nenhum erro estrutural ou de integração detectado.
-
----
+- Adicionados campos de margem de costura e observação ao detalhamento do módulo.
+- Exportação/importação XML sincronizadas com os novos campos.
+- Exibição dos serviços na tabela padronizada.
+- Correção da importação do campo quantidade_vagas.
+- Ecossistema estável, rastreável e pronto para incrementos futuros.
 
 

@@ -79,6 +79,22 @@
       <h2 style="font-size:1.5rem;font-weight:700;color:#1e40af;margin-bottom:18px;">Detalhar Serviços do Módulo</h2>
       <form id="servicosForm">
         <div id="servicosCheckboxes" class="servicos-flex-list"></div>
+        <div style="margin-bottom:12px;">
+          <label>
+            Margem de costura por lado (em metros):
+            <input type="number" step="0.01" min="0" value="0.05" id="margemCosturaInput" class="input" />
+          </label>
+        </div>
+        <div style="margin-bottom:12px;">
+          <label>
+            Observação para costura:
+            <input type="text" id="obsCosturaInput" class="input" placeholder="Ex: Bainha reforçada, ilhós a cada 25cm" />
+          </label>
+        </div>
+        <div style="margin-bottom:12px;">
+          <strong>Área útil da tela:</strong> <span id="areaTelaSpan">--</span> m² <br>
+          <strong>Área total (com margem):</strong> <span id="areaTelaTotalSpan">--</span> m²
+        </div>
         <div>
           <label style="font-weight:700;display:block;margin-bottom:7px;">Peças Extras</label>
           <div id="pecasExtrasList" style="margin-bottom:10px;"></div>
