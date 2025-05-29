@@ -9,7 +9,6 @@
 <body>
   <div class="container">
     <h1>Calculadora de Manutenção e Reforma</h1>
-    
     <!-- Formulário de Cadastro -->
     <form id="moduloForm">
       <div class="grid">
@@ -38,28 +37,10 @@
           </label>
         </div>
       </div>
-      <div class="grid">
-        <div>
-          <label class="form-label">Bases Comprometidas
-            <input type="number" name="bases_comprometidas" value="0" min="0" class="input"/>
-          </label>
-        </div>
-        <div>
-          <label class="form-label">Peças Remo/Guard
-            <input type="text" name="pecas_removidas" class="input"/>
-          </label>
-        </div>
-        <div>
-          <label class="form-label">Observações
-            <input type="text" name="observacoes" class="input"/>
-          </label>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn">Adicionar Módulo</button>
-        </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Adicionar Módulo</button>
       </div>
     </form>
-    
     <!-- Módulos cadastrados -->
     <div>
       <h2 class="section-title">Módulos Cadastrados</h2>
@@ -67,15 +48,15 @@
         <table>
           <thead>
             <tr>
+              <th style="width: 60px;">Ações</th>
               <th>#</th>
               <th>Vagas</th>
               <th>Largura</th>
               <th>Comp.</th>
               <th>Estado</th>
-              <th>Bases</th>
-              <th>Peças</th>
               <th>Obs.</th>
-              <th>Ações</th>
+              <th>Serviços</th>
+              <th>Preço</th>
             </tr>
           </thead>
           <tbody id="modulosTable"></tbody>
@@ -94,10 +75,10 @@
 
   <!-- Modal de detalhamento de serviços -->
   <div id="servicosModal" class="no-print" style="position:fixed;inset:0;z-index:40; background:rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;">
-    <div style="background:#fff;border-radius:18px;padding:32px 18px;box-shadow:0 6px 36px 0 #1e40af22;width:100%;max-width:420px;">
+    <div style="background:#fff;border-radius:18px;padding:32px 18px;box-shadow:0 6px 36px 0 #1e40af22;width:100%;max-width:440px;">
       <h2 style="font-size:1.5rem;font-weight:700;color:#1e40af;margin-bottom:18px;">Detalhar Serviços do Módulo</h2>
       <form id="servicosForm">
-        <div id="servicosCheckboxes" style="margin-bottom: 18px;"></div>
+        <div id="servicosCheckboxes" class="servicos-flex-list"></div>
         <div>
           <label style="font-weight:700;display:block;margin-bottom:7px;">Peças Extras</label>
           <div id="pecasExtrasList" style="margin-bottom:10px;"></div>
