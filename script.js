@@ -15,21 +15,21 @@ const SERVICOS_PADRAO = [
 ];
 
 const SERVICOS_VALORES_BASE = {
-  desmontagem: 60,  // fixo
-  montagem: 70,     // fixo
+  desmontagem: 200,  // fixo
+  montagem: 200,     // fixo
   transporte: 25,   // fixo
-  recuperacao: 38,  // fixo
+  recuperacao: 500,  // fixo
   lixamento: 8,     // R$/m²
   pintura: 10,      // R$/m²
   tratamento: 4,    // R$/m²
-  tela: 14,         // R$/m²
+  tela: 60,         // R$/m²
   cabo: 36          // fixo
 };
 
 const MULTIPLICADOR_ESTADO = {
   "Ruim": 1,
-  "Muito Ruim": 1.15,
-  "Condição Crítica": 1.3
+  "Muito Ruim": 1.50,
+  "Condição Crítica": 1.90
 };
 
 const SERVICOS_AREA = ["lixamento", "pintura", "tratamento", "tela"];
